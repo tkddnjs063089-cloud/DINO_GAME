@@ -1,0 +1,132 @@
+/* 기본 배경 레이아웃 */
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: url("background.png"); /* 이미지 경로 */
+  background-size: cover; /* 화면 전체 채우기 */
+  background-repeat: repeat-x;
+  overflow: hidden;
+}
+
+.insidebackground {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* 점수 표시 */
+.score {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  font-size: 2vw;
+  font-weight: bold;
+  color: #222;
+  z-index: 50;
+}
+
+/* 공룡 */
+.dino {
+  position: absolute;
+  bottom: 25%; /* ground 위에 정확히 놓임 */
+  left: 15%;
+  z-index: 20;
+}
+
+.dinobox {
+  width: 30px;
+  height: 30px;
+}
+
+/* 땅 */
+.ground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 25%;
+  z-index: 10;
+}
+
+/* 시작화면 */
+.start-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.start-screen img {
+  width: 30%;
+  cursor: pointer;
+}
+
+/* Game Over 텍스트 */
+.gameover-text {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3vw;
+  font-weight: bold;
+  color: #ff3333;
+  z-index: 200;
+  text-align: center;
+}
+
+/* 반응형 안내 */
+.info-box {
+  position: absolute;
+  right: 3%;
+  top: 5%;
+  color: #333;
+  font-size: 1.3vw;
+  font-weight: 500;
+  text-align: right;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 세로모드 안내 */
+@media screen and (orientation: portrait) {
+  .hero {
+    display: none;
+  }
+
+  body::before {
+    content: "📲 핸드폰을 가로모드로 바꿔주세요!";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 6vw;
+    font-weight: bold;
+    color: white;
+    background: rgb(131, 131, 131);
+    text-align: center;
+  }
+}
